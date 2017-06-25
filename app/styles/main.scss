@@ -1,0 +1,186 @@
+// bower:scss
+@import "bower_components/foundation-sites/scss/foundation.scss";
+// endbower
+@include foundation-everything;
+
+$blue : #4267b2;
+$grey:#cfcfcf;
+
+$table-background : transparent!important;
+
+body {
+    /*background-color: rgb(48,182,222);*/
+    @include breakpoint(large) {
+        margin: 0px 100px;
+    }
+    font-size: 110%;
+    background-color: rgba(234, 227, 220, 1);
+
+    font-family: 'Josefin Sans', sans-serif;
+
+}
+
+.no-js {
+    @include breakpoint(small only) {
+        .top-bar {
+            display: none;
+        }
+    }
+    @include breakpoint(medium) {
+        .title-bar {
+            display: none;
+        }
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #c8702d;
+    font-family: 'Josefin Sans', sans-serif;
+
+}
+
+h1 {
+    line-height: rem-calc(50);
+    font-weight: 500;
+    @include breakpoint(small only) {
+        line-height: rem-calc(70);
+    }
+}
+hr {
+    padding: 10px 0;
+    border-color: #fff;
+}
+table, tbody, thead, tr, td, tbody tr:nth-child(even), tbody tr:nth-child(odd) {
+    background-color: transparent;
+    border-color: transparent;
+}
+.sticky {
+    z-index: 1;
+}
+.menu-bar {
+    padding-left: 0;
+    padding-right: 0;
+}
+#menu {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+    width: 100%;
+    margin-top: 14px;
+    margin-bottom: rem-calc(40);
+    /*background-color: black;*/
+    font-weight: 500;
+    @include breakpoint(small only) {
+        /*box-shadow: 1px 1px 9px #000;*/
+    }
+    li a {
+        color: #000;
+        display: inline;
+    }
+    i {
+        color: $blue;
+    }
+    li.active {
+        font-weight: 800;
+    }
+}
+
+
+$large-article-header-bg: url('/images/hounds-of-love-rolly-greyscale.jpg');
+$large-article-header-color: $white;
+$large-article-header-height: rem-calc(500);
+.large-article-header {
+    background: $large-article-header-bg no-repeat top;
+    background-size: cover;
+    height: $large-article-header-height;
+    position: relative;
+    @include breakpoint(small only) {
+        height: ($large-article-header-height / 1.5);
+    }
+    color: white;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.63);
+
+    .blackbox {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 37%;
+        height: 100%;
+        display:block;
+        background-color: rgba(0, 0, 0, 0.44);
+
+         h1 {
+            font-family: 'Limelight', cursive;
+            position: absolute;
+            font-size: 4em;
+            bottom: 80px;
+            color: #fff;
+            left: 20px;
+            line-height: rem-calc(80);
+        }
+        h4 {
+            position: absolute;
+            bottom: 10px;
+            color: #fff;
+            left: 20px;
+            margin-right: 20px;
+        }
+
+        @include breakpoint(medium down) {
+            width: 100%;
+            height: 33%;
+            bottom: 0;
+            top: auto;
+            background-color: transparent;       
+
+            h1 {
+                bottom: 60px;
+            }     
+        }
+       
+    }
+}
+
+.large-article-header-content {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: rem-calc(50);
+    @include breakpoint(small only) {
+        bottom: rem-calc(20);
+    }
+}
+.sections {
+    margin-top: 0px;
+}
+
+section {
+    margin-bottom: rem-calc(40);
+   /* h1 {
+        font-size: 2em;
+    }
+    h3 {
+        font-size: 1.4em;
+    }*/
+}
+footer {
+  color: $grey;
+  font-size: 0.8em;
+}
+#scroll-to-top {
+    width: 40px;
+    background-color: #000;
+    text-align: center;
+    padding: 7px 15px;
+    position: fixed;
+    bottom: 0;
+    right: 5px;
+
+    a {
+      color: #fff;
+    }
+}
