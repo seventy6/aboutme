@@ -2,35 +2,31 @@
 @import "bower_components/foundation-sites/scss/foundation.scss";
 // endbower
 @include foundation-everything;
+$foundation-palette: ( primary: #1779ba, secondary: #767676, success: #3adb76, warning: #ffae00, alert: #cc4b37, );
+$light-gray: #e6e6e6;
+$medium-gray: #cacaca;
+$dark-gray: #8a8a8a;
+$black: #0a0a0a;
+$white: #fefefe;
+$pink: pink;
 
-$blue : #4267b2;
-$grey:#cfcfcf;
-
-$table-background : transparent!important;
-
+/*https://unsplash.com/search/stars?photo=bdItYXOF0T8*/
+$large-article-header-bg: url('/images/starry-skies.jpg');
 body {
     /*background-color: rgb(48,182,222);*/
     @include breakpoint(large) {
-        margin: 0px 100px;
+        /*margin: 0px 0px;*/
     }
     font-size: 110%;
-    background-color: rgba(234, 227, 220, 1);
-
-    font-family: 'Josefin Sans', sans-serif;
-
+    background-color: $black;
+    color: $white;
+    font-family: 'Josefin Sans',
+    sans-serif;
 }
 
 .no-js {
-    @include breakpoint(small only) {
-        .top-bar {
-            display: none;
-        }
-    }
-    @include breakpoint(medium) {
-        .title-bar {
-            display: none;
-        }
-    }
+    @include breakpoint(small only) {}
+    @include breakpoint(medium) {}
 }
 
 h1,
@@ -39,148 +35,98 @@ h3,
 h4,
 h5,
 h6 {
-    color: #c8702d;
     font-family: 'Josefin Sans', sans-serif;
-
+    color: $medium-gray;
+}
+.white {
+    color: $white;
+}
+.row {
+    max-width: 100rem;
 }
 
-h1 {
-    line-height: rem-calc(50);
-    font-weight: 500;
-    @include breakpoint(small only) {
-        line-height: rem-calc(70);
-    }
-}
-hr {
-    padding: 10px 0;
-    border-color: #fff;
-}
-table, tbody, thead, tr, td, tbody tr:nth-child(even), tbody tr:nth-child(odd) {
-    background-color: transparent;
-    border-color: transparent;
-}
-.sticky {
-    z-index: 1;
-}
-.menu-bar {
-    padding-left: 0;
-    padding-right: 0;
-}
-#menu {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 18px;
-    width: 100%;
-    margin-top: 14px;
-    margin-bottom: rem-calc(40);
-    /*background-color: black;*/
-    font-weight: 500;
-    @include breakpoint(small only) {
-        /*box-shadow: 1px 1px 9px #000;*/
-    }
-    li a {
-        color: #000;
-        display: inline;
-    }
-    i {
-        color: $blue;
-    }
-    li.active {
-        font-weight: 800;
-    }
+.info-area {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
-
-$large-article-header-bg: url('/images/hounds-of-love-rolly-greyscale.jpg');
-$large-article-header-color: $white;
-$large-article-header-height: rem-calc(500);
-.large-article-header {
+.visual-area {
+    background-color: $black;
+    min-height: 100vh;
     background: $large-article-header-bg no-repeat top;
-    background-size: cover;
-    height: $large-article-header-height;
-    position: relative;
-    @include breakpoint(small only) {
-        height: ($large-article-header-height / 1.5);
-    }
-    color: white;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.63);
-
-    .blackbox {
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 37%;
-        height: 100%;
-        display:block;
-        background-color: rgba(0, 0, 0, 0.44);
-
-         h1 {
-            font-family: 'Limelight', cursive;
-            position: absolute;
-            font-size: 4em;
-            bottom: 80px;
-            color: #fff;
-            left: 20px;
-            line-height: rem-calc(80);
-        }
-        h4 {
-            position: absolute;
-            bottom: 10px;
-            color: #fff;
-            left: 20px;
-            margin-right: 20px;
-        }
-
-        @include breakpoint(medium down) {
-            width: 100%;
-            height: 33%;
-            bottom: 0;
-            top: auto;
-            background-color: transparent;       
-
-            h1 {
-                bottom: 60px;
-            }     
-        }
-       
-    }
-}
-
-.large-article-header-content {
+    background-size: contain;
     display: flex;
-    flex-direction: column;
-    position: absolute;
-    bottom: rem-calc(50);
+    align-items: center;
+    justify-content: center;
+    
     @include breakpoint(small only) {
-        bottom: rem-calc(20);
+        align-self: flex-start;
     }
-}
-.sections {
-    margin-top: 0px;
+
 }
 
-section {
-    margin-bottom: rem-calc(40);
-   /* h1 {
-        font-size: 2em;
-    }
-    h3 {
-        font-size: 1.4em;
-    }*/
-}
-footer {
-  color: $grey;
-  font-size: 0.8em;
-}
-#scroll-to-top {
-    width: 40px;
-    background-color: #000;
+
+/*https://codepen.io/ruandre/pen/howFi*/
+
+.soc {
+    top: 20%;
+    position: relative;
+    display: block;
+    font-size: 0;
+    list-style: none;
+    margin: 0;
+    padding: 48px;
+    padding: 4.8rem;
     text-align: center;
-    padding: 7px 15px;
-    position: fixed;
-    bottom: 0;
-    right: 5px;
+}
 
-    a {
-      color: #fff;
+.soc li {
+    display: inline-block;
+    margin: 12px;
+    margin: 1.2rem;
+}
+
+.soc a,
+.soc svg {
+    display: block;
+}
+
+.soc a {
+    position: relative;
+    height: 32px;
+    height: 3.2rem;
+    width: 32px;
+    width: 3.2rem;
+}
+
+.soc svg {
+    height: 100%;
+    width: 100%;
+}
+
+.soc em {
+    font-size: 10px;
+    line-height: 1.5;
+    margin-top: -0.75em;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+$background: hsl(210,
+45,
+10);
+@for $i from 1 through 8 {
+    .colour-#{$i} {
+        border-radius: 10px;
+        background: rgba(10, 10, 10, 0.63);
+        color: $white;
+        fill: $white;
+        &:hover {
+            fill: hsl($i * 12, 70, 50);
+        }
     }
 }
