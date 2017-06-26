@@ -1,0 +1,133 @@
+// bower:scss
+@import "bower_components/foundation-sites/scss/foundation.scss";
+// endbower
+@include foundation-everything;
+$foundation-palette: ( primary: #1779ba, secondary: #767676, success: #3adb76, warning: #ffae00, alert: #cc4b37, );
+$light-gray: #e6e6e6;
+$medium-gray: #cacaca;
+$dark-gray: #8a8a8a;
+$black: #0a0a0a;
+$white: #fefefe;
+$pink: pink;
+
+/*https://unsplash.com/search/stars?photo=bdItYXOF0T8*/
+$large-article-header-bg: url('/images/starry-skies.jpg');
+body {
+    /*background-color: rgb(48,182,222);*/
+    @include breakpoint(large) {
+        /*margin: 0px 0px;*/
+    }
+    font-size: 110%;
+    background-color: $black;
+    color: $white;
+    font-family: 'Josefin Sans',
+    sans-serif;
+}
+
+.no-js {
+    @include breakpoint(small only) {}
+    @include breakpoint(medium) {}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Josefin Sans', sans-serif;
+    color: $medium-gray;
+}
+.white {
+    color: $white;
+}
+.row {
+    max-width: 100rem;
+}
+
+.info-area {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.visual-area {
+    text-align: center;
+    background-color: $black;
+    min-height: 100vh;
+    background: $large-article-header-bg no-repeat top;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    @include breakpoint(small only) {
+        align-self: flex-start;
+    }
+
+}
+
+
+/*https://codepen.io/ruandre/pen/howFi*/
+
+.soc {
+    top: 20%;
+    position: relative;
+    display: block;
+    font-size: 0;
+    list-style: none;
+    margin: 0;
+    padding: 48px;
+    padding: 4.8rem;
+    text-align: center;
+}
+
+.soc li {
+    display: inline-block;
+    margin: 12px;
+    margin: 1.2rem;
+}
+
+.soc a,
+.soc svg {
+    display: block;
+}
+
+.soc a {
+    position: relative;
+    height: 32px;
+    height: 3.2rem;
+    width: 32px;
+    width: 3.2rem;
+}
+
+.soc svg {
+    height: 100%;
+    width: 100%;
+}
+
+.soc em {
+    font-size: 10px;
+    line-height: 1.5;
+    margin-top: -0.75em;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+$background: hsl(210,
+45,
+10);
+@for $i from 1 through 8 {
+    .colour-#{$i} {
+        border-radius: 10px;
+        background: rgba(10, 10, 10, 0.63);
+        color: $white;
+        fill: $white;
+        &:hover {
+            fill: hsl($i * 12, 70, 50);
+        }
+    }
+}
