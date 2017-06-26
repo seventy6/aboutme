@@ -1,4 +1,4 @@
-// Generated on 2017-06-25 using
+// Generated on 2017-05-06 using
 // generator-foundation6 0.0.2
 'use strict';
 
@@ -247,7 +247,7 @@ module.exports = function (grunt) {
       options: {
         assetsDirs: [
           '<%= config.dist %>',
-          '<%= config.dist %>/images',
+          '<%= config.dist %>/images/**/**',
           '<%= config.dist %>/styles'
         ]
       },
@@ -260,9 +260,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>/images',
+          cwd: '<%= config.app %>/images/**/**',
           src: '{,*/}*.{gif,jpeg,jpg,png}',
-          dest: '<%= config.dist %>/images'
+          dest: '<%= config.dist %>/images/**/**'
         }]
       }
     },
@@ -287,7 +287,7 @@ module.exports = function (grunt) {
           removeAttributeQuotes: true,
           removeCommentsFromCDATA: true,
           removeEmptyAttributes: true,
-          removeOptionalTags: true,
+          //removeOptionalTags: true,
           // true would impact styles with attribute selectors
           removeRedundantAttributes: false,
           useShortDoctype: true
@@ -304,28 +304,28 @@ module.exports = function (grunt) {
     // By default, your `index.html`'s <!-- Usemin block --> will take care
     // of minification. These next options are pre-configured if you do not
     // wish to use the Usemin blocks.
-    // cssmin: {
-    //   dist: {
-    //     files: {
-    //       '<%= config.dist %>/styles/main.css': [
-    //         '.tmp/styles/{,*/}*.css',
-    //         '<%= config.app %>/styles/{,*/}*.css'
-    //       ]
-    //     }
-    //   }
-    // },
-    // uglify: {
-    //   dist: {
-    //     files: {
-    //       '<%= config.dist %>/scripts/scripts.js': [
-    //         '<%= config.dist %>/scripts/scripts.js'
-    //       ]
-    //     }
-    //   }
-    // },
-    // concat: {
-    //   dist: {}
-    // },
+    cssmin: {
+      dist: {
+        files: {
+          '<%= config.dist %>/styles/main.css': [
+            '.tmp/styles/{,*/}*.css',
+            '<%= config.app %>/styles/{,*/}*.css'
+          ]
+        }
+      }
+    },
+    uglify: {
+      dist: {
+        files: {
+          '<%= config.dist %>/scripts/scripts.js': [
+            '<%= config.dist %>/scripts/scripts.js'
+          ]
+        }
+      }
+    },
+    concat: {
+      dist: {}
+    },
 
     // Copies remaining files to places other tasks can use
     copy: {
@@ -337,9 +337,13 @@ module.exports = function (grunt) {
           dest: '<%= config.dist %>',
           src: [
             '*.{ico,png,txt}',
-            'images/{,*/}*.webp',
+            'images/**/**',
             '{,*/}*.html',
-            'fonts/{,*/}*.*'
+            'fonts/{,*/}*.*',
+            'scripts/*.js',
+            'styles/*.*',
+            'CNAME',
+            'sitemap.xml'
           ]
         }, {
           expand: true,
@@ -412,9 +416,9 @@ module.exports = function (grunt) {
     'useminPrepare',
     'concurrent:dist',
     'postcss',
-    //'concat',
-    //'cssmin',
-    //'uglify',
+    'concat',
+    'cssmin',
+    'uglify',
     'copy:dist',
     'filerev',
     'usemin',
